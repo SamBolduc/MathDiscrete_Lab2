@@ -20,7 +20,7 @@ public class SumMatrix extends Action {
         int[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
 
         if (firstMatrix == null || secondMatrix == null) {
-            this.getMenu().showError("LES MATRICES N'ONT PAS ÉTÉ DÉFINISES");
+            this.getMenu().showError("LES MATRICES N'ONT PAS ÉTÉ DÉFINIES");
             return;
         }
 

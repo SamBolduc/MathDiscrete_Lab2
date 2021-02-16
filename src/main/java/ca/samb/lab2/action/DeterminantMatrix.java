@@ -17,7 +17,7 @@ public class DeterminantMatrix extends Action {
         int[][] array = this.getMenu().getMatrixManager().getFirstMatrix();
 
         if (array == null) {
-            this.getMenu().showError("LA MATRICE N'A PAS ÉTÉ DÉFINISE");
+            this.getMenu().showError("LA MATRICE N'A PAS ÉTÉ DÉFINIE");
             return;
         }
 
