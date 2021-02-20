@@ -5,8 +5,22 @@ import java.util.List;
 
 public class MatrixManager {
 
-    private double[][] firstMatrix = {{2, -3, 1}, {0, 3, -2}, {1, -1, -1}};
-    private double[][] secondMatrix = {{1}, {-1}, {0}};
+    private double[][] firstMatrix;
+    private double[][] secondMatrix;
+
+    public List<String> asPrintable(double[] matrix) {
+        List<String> ret = new ArrayList<>();
+
+        StringBuilder line = new StringBuilder();
+        line.append("[");
+        for (double el : matrix) {
+            line.append(String.format("%.4f  ", el));
+        }
+        ret.add(line.toString().trim() + "]");
+        ret.add("");
+
+        return ret;
+    }
 
     public List<String> asPrintable(double[][] matrix) {
         List<String> ret = new ArrayList<>();
@@ -14,7 +28,7 @@ public class MatrixManager {
         for (double[] row : matrix) {
             StringBuilder line = new StringBuilder();
             for (double el : row) {
-                line.append(String.format("%4d", el));
+                line.append(String.format("%.2f  ", el));
             }
             ret.add(line.toString());
             ret.add("");
