@@ -22,14 +22,14 @@ public class DefineMatrix extends Action {
             int rows = textIO.newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(2).read("Entrez le nombre de ligne:");
             int cols = textIO.newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(1).read("Entrez le nombre de colonne:");
 
-            int[][] array = new int[rows][cols];
+            double[][] array = new double[rows][cols];
 
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
                     List<String> prompts = this.getMenu().getMatrixManager().asPrintable(array);
                     prompts.add("Entrez la valeur de l'élément de l'emplacement [" + (i + 1) + "," + (j + 1) + "]:");
 
-                    int value = textIO.newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).read(prompts);
+                    double value = textIO.newDoubleInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).read(prompts);
                     array[i][j] = value;
                 }
             }

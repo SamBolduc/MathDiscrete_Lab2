@@ -16,8 +16,8 @@ public class SumMatrix extends Action {
         TextIO textIO = this.getMenu().getTextIO();
         MatrixManager manager = this.getMenu().getMatrixManager();
 
-        int[][] firstMatrix = this.getMenu().getMatrixManager().getFirstMatrix();
-        int[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
+        double[][] firstMatrix = this.getMenu().getMatrixManager().getFirstMatrix();
+        double[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
 
         if (firstMatrix == null || secondMatrix == null) {
             this.getMenu().showError("LES MATRICES N'ONT PAS ÉTÉ DÉFINIES");
@@ -35,7 +35,7 @@ public class SumMatrix extends Action {
             return;
         }
 
-        int[][] result = new int[firstRowCount][firstColsCount];
+        double[][] result = new double[firstRowCount][firstColsCount];
         for (int i = 0; i < firstRowCount; i++) {
             for (int j = 0; j < firstColsCount; j++) {
                 result[i][j] = firstMatrix[i][j] + secondMatrix[i][j];

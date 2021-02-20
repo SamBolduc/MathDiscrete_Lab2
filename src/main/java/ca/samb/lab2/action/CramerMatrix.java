@@ -14,8 +14,8 @@ public class CramerMatrix extends Action {
         TextIO textIO = this.getMenu().getTextIO();
         MatrixManager manager = this.getMenu().getMatrixManager();
 
-        int[][] firstMatrix = this.getMenu().getMatrixManager().getFirstMatrix();
-        int[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
+        double[][] firstMatrix = this.getMenu().getMatrixManager().getFirstMatrix();
+        double[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
 
         if (firstMatrix == null || secondMatrix == null) {
             this.getMenu().showError("LES MATRICES N'ONT PAS ÉTÉ DÉFINIES");
@@ -39,7 +39,7 @@ public class CramerMatrix extends Action {
         }
 
 
-        int detA = DeterminantMatrix.getDeterminant(firstMatrix, 3, 3);
+        double detA = DeterminantMatrix.getDeterminant(firstMatrix, 3, 3);
         if (detA == 0) {
             if (manager.isHomogeneous(secondMatrix)) {
                 this.getMenu().showError("IL Y A UNE INFINITÉ DE SOLUTIONS");
@@ -53,7 +53,7 @@ public class CramerMatrix extends Action {
         textIO.getTextTerminal().println();
 
         for (int i = 0; i < 3; i++) {
-            int[][] tmp = new int[3][3];
+            double[][] tmp = new double[3][3];
             for (int index = 0; index < firstMatrix.length; index++) {
                 System.arraycopy(firstMatrix[index], 0, tmp[index], 0, firstMatrix[0].length);
                 tmp[index][i] = secondMatrix[index][0];
@@ -67,12 +67,12 @@ public class CramerMatrix extends Action {
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");
     }
 
-    private int getDeterminant(int matrix[][], int initialSize, int size) {
-        int result = 0;
+    private double getDeterminant(double matrix[][], int initialSize, int size) {
+        double result = 0;
 
         if (size == 1) return matrix[0][0];
 
-        int tmp[][] = new int[initialSize][initialSize];
+        double tmp[][] = new double[initialSize][initialSize];
 
         int sign = 1;
         for (int i = 0; i < size; i++) {
@@ -84,7 +84,7 @@ public class CramerMatrix extends Action {
         return result;
     }
 
-    private void getCofactor(int matrix[][], int tmp[][], int p, int q, int matrixSize) {
+    private void getCofactor(double matrix[][], double tmp[][], int p, int q, int matrixSize) {
         int row = 0;
         int col = 0;
 

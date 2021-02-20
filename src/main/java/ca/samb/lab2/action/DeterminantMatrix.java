@@ -14,7 +14,7 @@ public class DeterminantMatrix extends Action {
         TextIO textIO = this.getMenu().getTextIO();
         MatrixManager manager = this.getMenu().getMatrixManager();
 
-        int[][] array = this.getMenu().getMatrixManager().getFirstMatrix();
+        double[][] array = this.getMenu().getMatrixManager().getFirstMatrix();
 
         if (array == null) {
             this.getMenu().showError("LA MATRICE N'A PAS ÉTÉ DÉFINIE");
@@ -29,7 +29,7 @@ public class DeterminantMatrix extends Action {
             return;
         }
 
-        int[][] result = new int[rowCount][colsCount];
+        double[][] result = new double[rowCount][colsCount];
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colsCount; j++) {
                 result[i][j] = array[j][i];
@@ -43,12 +43,12 @@ public class DeterminantMatrix extends Action {
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");
     }
 
-    public static int getDeterminant(int matrix[][], int initialSize, int size) {
-        int result = 0;
+    public static double getDeterminant(double matrix[][], int initialSize, int size) {
+        double result = 0;
 
         if (size == 1) return matrix[0][0];
 
-        int tmp[][] = new int[initialSize][initialSize];
+        double tmp[][] = new double[initialSize][initialSize];
 
         int sign = 1;
         for (int i = 0; i < size; i++) {
@@ -60,7 +60,7 @@ public class DeterminantMatrix extends Action {
         return result;
     }
 
-    public static void getCofactor(int matrix[][], int tmp[][], int p, int q, int matrixSize) {
+    public static void getCofactor(double matrix[][], double tmp[][], int p, int q, int matrixSize) {
         int row = 0;
         int col = 0;
 

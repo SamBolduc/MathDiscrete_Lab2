@@ -16,7 +16,7 @@ public class TransposeMatrix extends Action {
         TextIO textIO = this.getMenu().getTextIO();
         MatrixManager manager = this.getMenu().getMatrixManager();
 
-        int[][] array = this.getMenu().getMatrixManager().getFirstMatrix();
+        double[][] array = this.getMenu().getMatrixManager().getFirstMatrix();
 
         if (array == null) {
             this.getMenu().showError("LA MATRICE N'A PAS ÉTÉ DÉFINIE");
@@ -31,7 +31,7 @@ public class TransposeMatrix extends Action {
             return;
         }
 
-        int[][] result = new int[rowCount][colsCount];
+        double[][] result = new double[rowCount][colsCount];
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colsCount; j++) {
                 result[i][j] = array[j][i];

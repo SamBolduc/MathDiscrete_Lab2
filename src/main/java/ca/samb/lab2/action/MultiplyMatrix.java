@@ -16,8 +16,8 @@ public class MultiplyMatrix extends Action {
         TextIO textIO = this.getMenu().getTextIO();
         MatrixManager manager = this.getMenu().getMatrixManager();
 
-        int[][] firstMatrix = this.getMenu().getMatrixManager().getFirstMatrix();
-        int[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
+        double[][] firstMatrix = this.getMenu().getMatrixManager().getFirstMatrix();
+        double[][] secondMatrix = this.getMenu().getMatrixManager().getSecondMatrix();
 
         if (firstMatrix == null || secondMatrix == null) {
             this.getMenu().showError("LES MATRICES N'ONT PAS ÉTÉ DÉFINIES");
@@ -35,7 +35,7 @@ public class MultiplyMatrix extends Action {
             return;
         }
 
-        int[][] result = new int[firstRowCount][secondColsCount];
+        double[][] result = new double[firstRowCount][secondColsCount];
         for (int i = 0; i < firstColsCount; i++) {
             for (int j = 0; j < secondColsCount; j++) {
                 result[i][j] = 0;
