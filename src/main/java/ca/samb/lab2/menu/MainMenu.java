@@ -23,12 +23,13 @@ public class MainMenu extends Menu {
         menu.add("3 - Calculer le déterminant de la première matrice.");
         menu.add("4 - Additionner les matrices.");
         menu.add("5 - Multiplier les matrices.");
-        menu.add("6 - Quitter.");
+        menu.add("6 - Appliquer la règle de Cramer.");
+        menu.add("7 - Quitter.");
         menu.add("");
         menu.add("Veuillez choisir une option:");
 
         while (true) {
-            int action = this.getTextIO().newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(1).withMaxVal(6).read(menu);
+            int action = this.getTextIO().newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(1).withMaxVal(7).read(menu);
 
             switch (action) {
                 case 1:
@@ -47,6 +48,9 @@ public class MainMenu extends Menu {
                     new MultiplyMatrix(this).execute();
                     break;
                 case 6:
+                    new CramerMatrix(this).execute();
+                    break;
+                case 7:
                     new LeaveAction(this).execute();
                     break;
             }

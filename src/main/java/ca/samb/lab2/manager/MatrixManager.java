@@ -5,8 +5,8 @@ import java.util.List;
 
 public class MatrixManager {
 
-    private int[][] firstMatrix;
-    private int[][] secondMatrix;
+    private int[][] firstMatrix = {{1, 1, -1}, {2, -1, -1}, {0, -1, -1}};
+    private int[][] secondMatrix = {{2}, {3}, {1}};
 
     public List<String> asPrintable(int[][] matrix) {
         List<String> ret = new ArrayList<>();
@@ -26,6 +26,15 @@ public class MatrixManager {
     public int getRowCount(int[][] matrix) {
         int rows = matrix.length;
         return rows == 0 ? -1 : rows;
+    }
+
+    public boolean isHomogeneous(int[][] matrix) {
+        for (int[] rows : matrix) {
+            for (int el : rows) {
+                if (el != 0) return false;
+            }
+        }
+        return true;
     }
 
     public int getColCount(int[][] matrix) {

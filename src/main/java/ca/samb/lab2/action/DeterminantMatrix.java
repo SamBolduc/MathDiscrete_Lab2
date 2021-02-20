@@ -37,13 +37,13 @@ public class DeterminantMatrix extends Action {
         }
 
         textIO.getTextTerminal().println();
-        textIO.getTextTerminal().println("Le déterminant de la première matrice est: " + this.getDeterminant(array, rowCount, rowCount));
+        textIO.getTextTerminal().println("Le déterminant de la première matrice est: " + getDeterminant(array, rowCount, rowCount));
         textIO.getTextTerminal().println();
 
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");
     }
 
-    private int getDeterminant(int matrix[][], int initialSize, int size) {
+    public static int getDeterminant(int matrix[][], int initialSize, int size) {
         int result = 0;
 
         if (size == 1) return matrix[0][0];
@@ -52,15 +52,15 @@ public class DeterminantMatrix extends Action {
 
         int sign = 1;
         for (int i = 0; i < size; i++) {
-            this.getCofactor(matrix, tmp, 0, i, size);
-            result += this.getDeterminant(tmp, initialSize, size - 1) * matrix[0][i] * sign;
+            getCofactor(matrix, tmp, 0, i, size);
+            result += getDeterminant(tmp, initialSize, size - 1) * matrix[0][i] * sign;
             sign *= -1;
         }
 
         return result;
     }
 
-    private void getCofactor(int matrix[][], int tmp[][], int p, int q, int matrixSize) {
+    public static void getCofactor(int matrix[][], int tmp[][], int p, int q, int matrixSize) {
         int row = 0;
         int col = 0;
 

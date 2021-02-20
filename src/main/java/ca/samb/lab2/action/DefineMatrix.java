@@ -20,7 +20,7 @@ public class DefineMatrix extends Action {
             textIO.getTextTerminal().println("************** " + matrix + " **************");
 
             int rows = textIO.newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(2).read("Entrez le nombre de ligne:");
-            int cols = textIO.newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(2).read("Entrez le nombre de colonne:");
+            int cols = textIO.newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(1).read("Entrez le nombre de colonne:");
 
             int[][] array = new int[rows][cols];
 
