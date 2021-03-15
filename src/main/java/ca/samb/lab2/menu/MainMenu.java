@@ -18,20 +18,26 @@ public class MainMenu extends Menu {
     @Override
     public void show() {
         List<String> menu = new ArrayList<String>();
+        menu.add("0 - Quitter.");
         menu.add("1 - Définir les matrices.");
         menu.add("2 - Transposer la première matrice.");
         menu.add("3 - Calculer le déterminant de la première matrice.");
         menu.add("4 - Additionner les matrices.");
         menu.add("5 - Multiplier les matrices.");
         menu.add("6 - Appliquer la règle de Cramer.");
-        menu.add("7 - Quitter.");
+        menu.add("7 - Convertir un nombre vers une autre base.");
+        menu.add("8 - Plus grand commun diviseur (PGCD)");
+        menu.add("9 - Nombre premier.");
         menu.add("");
         menu.add("Veuillez choisir une option:");
 
         while (true) {
-            int action = this.getTextIO().newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(1).withMaxVal(7).read(menu);
+            int action = this.getTextIO().newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(0).withMaxVal(9).read(menu);
 
             switch (action) {
+                case 0:
+                    new LeaveAction(this).execute();
+                    break;
                 case 1:
                     new DefineMatrix(this).execute();
                     break;
@@ -51,7 +57,13 @@ public class MainMenu extends Menu {
                     new CramerMatrix(this).execute();
                     break;
                 case 7:
-                    new LeaveAction(this).execute();
+                    new DecimalConverter(this).execute();
+                    break;
+                case 8:
+                    new GreatestCommonDivisor(this).execute();
+                    break;
+                case 9:
+                    new PrimeValidator(this).execute();
                     break;
             }
         }
