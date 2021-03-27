@@ -3,6 +3,7 @@ package ca.samb.lab2.menu;
 import ca.samb.lab2.action.*;
 import ca.samb.lab2.error.InvalidOptionError;
 import ca.samb.lab2.manager.MatrixManager;
+import ca.samb.lab2.manager.NumberManager;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextTerminal;
 
@@ -11,8 +12,8 @@ import java.util.List;
 
 public class MainMenu extends Menu {
 
-    public MainMenu(TextIO textIO, TextTerminal<?> terminal, MatrixManager matrixManager) {
-        super(textIO, terminal, matrixManager);
+    public MainMenu(TextIO textIO, TextTerminal<?> terminal, MatrixManager matrixManager, NumberManager numberManager) {
+        super(textIO, terminal, matrixManager, numberManager);
     }
 
     @Override
@@ -28,11 +29,12 @@ public class MainMenu extends Menu {
         menu.add("7 - Convertir un nombre vers une autre base.");
         menu.add("8 - Plus grand commun diviseur (PGCD)");
         menu.add("9 - Nombre premier.");
+        menu.add("10 - Générateur de nombre aléatoire.");
         menu.add("");
         menu.add("Veuillez choisir une option:");
 
         while (true) {
-            int action = this.getTextIO().newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(0).withMaxVal(9).read(menu);
+            int action = this.getTextIO().newIntInputReader().withParseErrorMessagesProvider(new InvalidOptionError()).withMinVal(0).withMaxVal(10).read(menu);
 
             switch (action) {
                 case 0:
@@ -64,6 +66,9 @@ public class MainMenu extends Menu {
                     break;
                 case 9:
                     new PrimeValidator(this).execute();
+                    break;
+                case 10:
+                    new NumberGenerator(this).execute();
                     break;
             }
         }

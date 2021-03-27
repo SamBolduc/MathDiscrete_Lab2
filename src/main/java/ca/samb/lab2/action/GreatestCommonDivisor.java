@@ -15,15 +15,8 @@ public class GreatestCommonDivisor extends Action {
         int firstN = textIO.newIntInputReader().withDefaultValue(0).read("Veuillez entrer le premier nombre entier positif:");
         int secondN = textIO.newIntInputReader().withDefaultValue(0).read("Veuillez entrer le deuxième nombre entier positif:");
 
-        int mod;
-        while (secondN != 0) {
-            mod = firstN % secondN;
-            firstN = secondN;
-            secondN = mod;
-        }
-
         textIO.getTextTerminal().println();
-        textIO.getTextTerminal().println("PGCD: " + firstN);
+        textIO.getTextTerminal().println("PGCD: " + this.getMenu().getNumberManager().pgcd(firstN, secondN));
         textIO.getTextTerminal().println();
 
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");

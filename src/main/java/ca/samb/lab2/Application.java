@@ -1,6 +1,7 @@
 package ca.samb.lab2;
 
 import ca.samb.lab2.manager.MatrixManager;
+import ca.samb.lab2.manager.NumberManager;
 import ca.samb.lab2.menu.MainMenu;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
@@ -13,14 +14,16 @@ public class Application {
     private TextTerminal<?> terminal;
     private MainMenu mainMenu;
     private MatrixManager matrixManager;
+    private NumberManager numberManager;
 
     public Application(String[] args) {
         this.args = args;
         this.textIO = TextIoFactory.getTextIO();
         this.terminal = this.textIO.getTextTerminal();
         this.matrixManager = new MatrixManager();
- 
-        this.mainMenu = new MainMenu(this.textIO, this.terminal, this.matrixManager);
+        this.numberManager = new NumberManager();
+
+        this.mainMenu = new MainMenu(this.textIO, this.terminal, this.matrixManager, this.numberManager);
         this.mainMenu.show();
     }
 }

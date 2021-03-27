@@ -14,16 +14,8 @@ public class PrimeValidator extends Action {
 
         int number = textIO.newIntInputReader().withDefaultValue(0).read("Veuillez entrer le premier nombre entier positif:");
 
-        boolean prime = true;
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                prime = false;
-                break;
-            }
-        }
-
         textIO.getTextTerminal().println();
-        textIO.getTextTerminal().println("Nombre premier: " + (prime ? "Oui" : "Non"));
+        textIO.getTextTerminal().println("Nombre premier: " + (this.getMenu().getNumberManager().estPremier(number) ? "Oui" : "Non"));
         textIO.getTextTerminal().println();
 
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");
