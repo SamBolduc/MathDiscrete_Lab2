@@ -44,14 +44,14 @@ public class DecimalConverter extends Action {
         }
 
         textIO.getTextTerminal().println();
-        textIO.getTextTerminal().println("Binaire: " + this.join(binary, ""));
-        textIO.getTextTerminal().println("Hexadécimal: " + this.join(hex, ""));
+        textIO.getTextTerminal().println("Binaire: " + join(binary, ""));
+        textIO.getTextTerminal().println("Hexadécimal: " + join(hex, ""));
         textIO.getTextTerminal().println();
 
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");
     }
 
-    private String join(Collection col, String spacer) {
+    public static String join(Collection col, String spacer) {
         StringBuffer buffer = new StringBuffer();
 
         for (Iterator it = col.iterator(); it.hasNext(); buffer.append((String) it.next())) {

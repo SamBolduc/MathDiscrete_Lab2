@@ -1,7 +1,6 @@
 package ca.samb.lab2.action;
 
 import ca.samb.lab2.menu.Menu;
-import com.sun.deploy.util.StringUtils;
 import org.beryx.textio.TextIO;
 
 public class NumberGenerator extends Action {
@@ -27,18 +26,8 @@ public class NumberGenerator extends Action {
         int max = textIO.newIntInputReader().withDefaultValue(0).read("Veuillez entrer le max:");
 
         textIO.getTextTerminal().println();
-        textIO.getTextTerminal().println(StringUtils.join(this.getMenu().getNumberManager().pseudo(a, c, m, x0, min, max), ", "));
-        //        textIO.getTextTerminal().println("Nombre premier: " + (prime ? "Oui" : "Non"));
+        textIO.getTextTerminal().println(DecimalConverter.join(this.getMenu().getNumberManager().pseudo(a, c, m, x0, min, max), ", "));
         textIO.getTextTerminal().println();
         int wait = textIO.newIntInputReader().withDefaultValue(0).read("Appuyer sur [ENTER] pour continuer...");
-    }
-
-    private boolean isKnuth(int a, int c, int m, int x) {
-
-        return false;
-    }
-
-    public void pseudo() {
-
     }
 }
