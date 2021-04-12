@@ -71,8 +71,8 @@ public class NumberManager {
             return result;
         }
 
-        if (!hasDecimal((double) (max - min) / (double) m)) {
-            result.add("L'équation (max - min) / m ne doit pas donner comme résultat un entier");
+        if ((((double) max - (double) min) / (double) (m - 1)) > 1) {
+            result.add("L'équation (max - min) / (m - 1) doit donner une réponse <= 1");
             return result;
         }
 
